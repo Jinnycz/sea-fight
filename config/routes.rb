@@ -1,6 +1,10 @@
 SeaFight::Application.routes.draw do
   devise_for :users
 
+
+  resource :personal do
+    resources :games
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
