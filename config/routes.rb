@@ -4,7 +4,11 @@ SeaFight::Application.routes.draw do
 
   resource :personal do
     resources :games
+    resources :friends
   end
+
+  root :to => 'static#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
