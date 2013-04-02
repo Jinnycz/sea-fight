@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :nickname, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :nickname, :password, :password_confirmation, :remember_me, :last_online_at
   # attr_accessible :title, :body
 
   has_many :friendships
@@ -15,4 +15,11 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_and_belongs_to_many :games
   has_many :tables
+
+  scope :online, lambda{ where("last_online_at > ?", Time.now - 5.minutes) }
+
+  def update_online
+    self.last_online_at = Time.now
+    self.save
+  end
 end

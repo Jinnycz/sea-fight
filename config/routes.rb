@@ -1,13 +1,13 @@
 SeaFight::Application.routes.draw do
+
   devise_for :users
 
-
-  resource :personal do
+  resource :personal, only: [:show, :edit, :update] do
     resources :games
     resources :friends
   end
 
-  root :to => 'static#index'
+  root to: 'static#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

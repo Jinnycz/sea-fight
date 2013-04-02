@@ -1,0 +1,24 @@
+%h3 My games
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Opponent
+      %th Time started
+  %tbody
+    - @user.games.each do |game|
+      %tr
+        %td= game.id
+        %td= game.users.where("id != ?", @user.id).first.nickname
+        %td= game.created_at
+%h3 Friends online
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Nickname
+  %tbody
+    - @user.friends.online.each do |friend|
+      %tr
+        %td= friend.id
+        %td= friend.nickname
