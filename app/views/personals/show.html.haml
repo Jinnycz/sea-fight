@@ -9,7 +9,7 @@
     - @user.games.each do |game|
       %tr
         %td= game.id
-        %td= game.users.where("id != ?", @user.id).first.nickname
+        %td= game.players.where("id != ?", @user.id).first.nickname
         %td= game.created_at
 %h3 Friends online
 %table.table.table-hover
