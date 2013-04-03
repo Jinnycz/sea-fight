@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :games
   has_many :tables
   has_many :invitations
-  has_many :inviters, through: :invitations, source: :user
 
   scope :online, lambda{ where("last_online_at > ?", Time.now - 5.minutes) }
 
