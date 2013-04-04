@@ -3,16 +3,16 @@
   %thead
     %tr
       %th #
-      %th Nickname
+      %th{colspan: 2} Nickname
       %th Last online
   %tbody
     - @users.each do |user|
       %tr
         %td= user.id
+        %td= user.nickname
         %td
-          = user.nickname
           - unless @friends.include? user
-            %button#invite.btn.btn-success Become a friend
+            = link_to "Become a friend", friendships_path(id: user.id, return_url: users_path), method: "post", class: "btn btn-success"
           - else
-            %button#invite.btn.btn-danger Not a friend
+            %button.btn.btn-danger Not a friend
         %td= user.last_online_at
