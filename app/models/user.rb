@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     self.last_online_at = Time.now
     self.save
   end
+
+  def online?
+    self.last_online_at > (Time.now - 5.minutes)
+  end
 end
