@@ -2,6 +2,7 @@ SeaFight::Application.routes.draw do
 
   devise_for :users
 
+  resources :users
   resource :personal, only: [:show, :edit, :update] do
     resources :games do
       resources :invitations
