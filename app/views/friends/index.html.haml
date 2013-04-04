@@ -1,0 +1,13 @@
+%h3 My friends
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Nickname
+      %th Last online
+  %tbody
+    - @friends.each do |friend|
+      %tr
+        %td= friend.id
+        %td= friend.nickname
+        %td= friend.last_online_at

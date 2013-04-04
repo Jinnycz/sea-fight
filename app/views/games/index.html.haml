@@ -1,0 +1,14 @@
+%h3 My games
+=link_to "Start new game!", new_personal_game_path, class: "btn btn-primary"
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Opponent
+      %th Time started
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.id
+        %td= game.players.where("id != ?", current_user.id).first.nickname
+        %td= game.created_at

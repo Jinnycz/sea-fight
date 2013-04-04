@@ -6,7 +6,7 @@ SeaFight::Application.routes.draw do
     resources :games do
       resources :invitations
     end
-    resources :friends
+    resources :friends, only: [:index]
   end
 
   root to: 'static#index'
