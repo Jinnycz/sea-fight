@@ -57,6 +57,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    has_scope (0.5.1)
     hike (1.2.1)
     hirb (0.7.1)
     i18n (0.6.4)
@@ -148,6 +149,7 @@ DEPENDENCIES
   backbone-support
   devise
   haml-rails
+  has_scope
   hirb
   jquery-rails
   less-rails

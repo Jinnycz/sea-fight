@@ -1,0 +1,18 @@
+%h3 Users
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Nickname
+      %th Last online
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td
+          = user.nickname
+          - unless @friends.include? user
+            %button#invite.btn.btn-success Become a friend
+          - else
+            %button#invite.btn.btn-danger Not a friend
+        %td= user.last_online_at

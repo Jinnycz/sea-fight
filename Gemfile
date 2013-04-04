@@ -12,14 +12,14 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'devise'
+gem "haml-rails"
+gem "has_scope"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'uglifier', '>= 1.0.3'
-  gem "haml-rails"
   gem 'rails-backbone'
-  gem "rails-backbone"
   gem 'backbone-support'
   gem "twitter-bootstrap-rails"
   gem "therubyracer"
