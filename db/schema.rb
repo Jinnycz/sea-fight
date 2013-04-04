@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403090115) do
+ActiveRecord::Schema.define(:version => 20130404141607) do
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
@@ -24,8 +24,11 @@ ActiveRecord::Schema.define(:version => 20130403090115) do
   add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "games", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "status",      :default => "pending"
+    t.datetime "started_at"
+    t.datetime "finished_at"
   end
 
   create_table "games_users", :force => true do |t|
