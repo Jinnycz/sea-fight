@@ -11,8 +11,9 @@
         %td= user.id
         %td= user.nickname
         %td
-          - unless @friends.include? user
-            = link_to "Become a friend", friendships_path(id: user.id, return_url: users_path), method: "post", class: "btn btn-success"
-          - else
-            %button.btn.btn-danger Not a friend
+          - unless @friends.nil?
+            - unless @friends.include? user
+              = link_to "Become a friend", friendships_path(id: user.id, return_url: users_path), method: "post", class: "btn btn-success"
+            - else
+              %button.btn.btn-danger Not a friend
         %td= user.last_online_at

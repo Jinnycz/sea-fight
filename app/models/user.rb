@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def online?
     self.last_online_at > (Time.now - 5.minutes)
   end
+
+  def has_friend? fid
+    self.friends.pluck("users.id").include? fid
+  end
 end
